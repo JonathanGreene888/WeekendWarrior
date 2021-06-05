@@ -9,7 +9,7 @@ function App() {
         </h1>
         <h3> Name your price! $$$ </h3>
         <div>
-         $20 <input type="range" min="20" max="5000" value="2500" class="slider"/> $5000
+         $20 <input type="range" min="20" max="5000" class="slider"/> $5000
         </div>
         <h3> Choose your developer! </h3>
         <button> Choose here! </button>
