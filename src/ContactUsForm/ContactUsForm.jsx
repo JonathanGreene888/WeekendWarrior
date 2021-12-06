@@ -12,6 +12,25 @@ import './ContactUsForm.css';
 
 const FormDialog = () => {
     const [open, setOpen] = React.useState(false);
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [budget, setBudget] = React.useState('');
+    const [message, setMessage] = React.useState('');
+
+
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+    const handleBudgetChange = (e) => {
+        setBudget(e.target.value)
+    }
+    const handleMessageChange = (e) => {
+        setMessage(e.target.value)
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -23,7 +42,7 @@ const FormDialog = () => {
 
     const submitEmailForm = () => {
         // TODO: Submit Email Form
-        axios.post('http://localhost:8000/sendEmail', { testing: 'tacos' });
+        axios.post('http://localhost:8000/sendEmail', { text: `${name} ${email} ${budget} ${message}` });
     }
 
     return (
@@ -44,6 +63,8 @@ const FormDialog = () => {
                         label="Name"
                         type="name"
                         fullWidth
+                        value={name}
+                        onChange={handleNameChange}
                     />
                     <TextField
                         autoFocus
@@ -52,6 +73,8 @@ const FormDialog = () => {
                         label="Email Address"
                         type="email"
                         fullWidth
+                        value={email}
+                        onChange={handleEmailChange}
                     />
                     <TextField
                         autoFocus
@@ -60,6 +83,8 @@ const FormDialog = () => {
                         label="budget"
                         type="numbers"
                         fullWidth
+                        value={budget}
+                        onChange={handleBudgetChange}
                     />
                     <TextField
                         autoFocus
@@ -68,6 +93,8 @@ const FormDialog = () => {
                         label="message"
                         type="message"
                         fullWidth
+                        value={message}
+                        onChange={handleMessageChange}
                     />
                 </DialogContent>
                 <DialogActions>
