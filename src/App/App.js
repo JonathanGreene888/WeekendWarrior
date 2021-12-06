@@ -11,8 +11,8 @@ function App() {
       </header>
       <div className='Border-box'>
         <h3> High Quality </h3>
-        <div>
-        </div>
+        <br />
+        <br />
         <h3> React based. Clean, Current and Custom </h3>
         <FormDialog />
       </div>

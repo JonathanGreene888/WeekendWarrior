@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+import './ContactUsForm.css';
 
 const FormDialog = () => {
     const [open, setOpen] = React.useState(false);
@@ -18,9 +21,14 @@ const FormDialog = () => {
         setOpen(false);
     };
 
+    const submitEmailForm = () => {
+        // TODO: Submit Email Form
+        axios.post('http://localhost:8000/sendEmail', { testing: 'tacos' });
+    }
+
     return (
         <div>
-            <Button variant="contained" color="secondary" onClick={handleClickOpen}>
+            <Button variant="contained" className='Button-color' onClick={handleClickOpen}>
                 Contact Us
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -66,7 +74,7 @@ const FormDialog = () => {
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={submitEmailForm} color="primary">
                         Submit
                     </Button>
                 </DialogActions>
