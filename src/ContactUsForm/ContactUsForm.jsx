@@ -43,6 +43,7 @@ const FormDialog = () => {
     const submitEmailForm = () => {
         // TODO: Submit Email Form
         axios.post('http://localhost:8000/sendEmail', { text: `${name} ${email} ${budget} ${message}` });
+        handleClose();
     }
 
     return (
